@@ -1,8 +1,31 @@
+import "./App.css";
+import Body from "./components/Body";
+
+import Header from "./components/Header";
+
+import { Provider } from "react-redux";
+
+import appStore from "./utils/appStore";
+
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-red-400 ">tailwind check</h1>
-    </div>
+    <Provider store={appStore}>
+      <div>
+        <Header />
+        <Body />
+
+        {/* 
+       Head
+       Body
+            Sidebar
+                Menu Items
+         MainContainer
+            ButtonList
+            VideoContainer
+                VideoCard        
+      */}
+      </div>
+    </Provider>
   );
 }
 
