@@ -77,28 +77,28 @@ const Header = () => {
   };
 
   return (
-    <div className="w-screen flex justify-between p-5  shadow-lg transition-all duration-700 dark:bg-black">
-      <div className="flex w-2/12    ">
+    <div className=" w-full md:w-screen flex justify-between p-5  shadow-lg transition-all duration-700 dark:bg-black">
+      <div className="flex w-3/12 md:w-2/12   ">
         <img
           onClick={toggleMenuHandler}
-          className="h-8 cursor-pointer rounded-full    "
+          className="h-8 cursor-pointer rounded-full   "
           alt="menu"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTQ5g7bDRjn-32JqTXGLUQJfXcPr4t4l_Aqw&usqp=CAU"
         />
         <a href="/" className="flex ">
           <img
             alt="youtube-logo"
-            className="h-8 mx-2"
+            className="h-8 mx-2  "
             src="https://www.youtube.com/s/desktop/29d8088d/img/favicon_32x32.png"
             // src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
           />
-          <h1 className="dark:text-white relative  font-bold text-2xl">
+          <h1 className="dark:text-white relative  font-bold text-2xl hidden md:flex">
             YOUTUBE
           </h1>
         </a>
       </div>
       {/*  search box */}
-      <div className=" px-10 ml-60 w-9/12  ">
+      <div className=" md:px-10 md:ml-60 md:w-9/12 w-6/12  ">
         <div>
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -106,12 +106,12 @@ const Header = () => {
             onBlur={() => setShowSuggestions(false)}
             value={searchQuery}
             placeholder="Search for Videos"
-            className="w-8/12 border border-gray-400 p-2 px-4 rounded-l-full placeholder-gray-400"
+            className="w-32 md:w-8/12 border border-gray-400 p-2 px-4 rounded-l-full placeholder-gray-400"
             type="text"
           />
           <button
             onClick={autoSearchApiCall}
-            className="border border-gray-400 px-8 bg-gray-100 py-2 rounded-r-full"
+            className="w-8 md:w-32 border border-gray-400 md:px-8 bg-gray-100 py-2 rounded-r-full"
           >
             🔍
           </button>
@@ -134,7 +134,7 @@ const Header = () => {
         )}
       </div>
       {/* dark theme */}
-      <div className="w-1/12 text-center">
+      <div className=" md:w-1/12 text-center">
         <img
           onClick={handleThemeChange}
           className="w-9 cursor-pointer dark-logo "
@@ -148,7 +148,7 @@ const Header = () => {
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEUaGhr///8AAAAJCQkYGBgVFRUbGxsRERF1dXUQEBDHx8dHR0fv7+/Dw8P7+/twcHDe3t6zs7OioqIvLy8nJye7u7tkZGQ8PDytra3Pz8/k5ORqamqampohISFPT0+Ojo6CgoJXV1ddXV04mqmCAAAFH0lEQVR4nO2dbZuqIBCGdRSJMnsv23Zr2///I0/2CmponlSg577223YZj8AwM8DkeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+mTAM+25Cq3AKlgHxvpvRHrRfxXG82lPfDWmJiH4TPyP5dVRisPZvrIO+G9MK9HVX+OVkJ7KN/2DD+m5OCwQTSeHExWEaDCSFAyi0ESi0Hyi0H7GWFK5F381pgVBICoWFMVQYEOnjIprdBc60Xhs/PSkw7hUEfDdPDyPSNIz9TK8Cpz8apy2k0SGd74RhM5WO59YnKWnaLhbjs8DxQtPXjNJzjDU9GuWdB8fk2j1DnURG+0N62Os/Mrw+KTka1IuhmN6nmFbieYrpJutD4KkXuTlzUewkMzkUOonR+e8ZTAylJ+3M6USa+7LExu+ecVmgPyfNy+gWSn1Fos6iaghJEein5tgaOigt8w/Nmvamx7QBHyVK0+KGCmPlKcnIoMRqbpj6jdrGR+pDDBqkxRn018SxFn9vmc0twVSJm0Z9uFEFGpaOUyQ2TIdKCVXzBKqLdXl8y7Lo40J55CDFyHq3oScey/W82IVZbLUYfM/G2+12nH4PFqUq757DkBlkRh8wOmTm/mtQEMiJT1bqUhCvJoLyzk9Ig2ygxgfzhugVotHfhvJDVNBopq6XF5LZiPI2N6DN34jMsqIqvDB/GB3HJfIujE+RlOp7RkwYOUCfQ8vS/nv049Ic97oRtIs1+s4TcmeS6/IqTA2rnjA31q5UEXE2rNbnG7s2VMN/trUE+v72x0qJjNcVeJLIbRyoVG+IXgeqheamlpF5UOLpGQ7tqlUp2LZosGXVOpgnXto1FaVdmLrod2tMQxx1rlo5yd6mPUV67mw/Z2xRJ+azZjUxKXtYQYNZmGHPTAz567MwI7Fm71s5wfYK1px2o1VDhSvDhikPLhTGFr262t8o7HeE4voVPXgDkaDNZHBmLdRkC1s0FOj7C1lJxIivL18xKea3WofWUoJ6psR3yuGn11BSyeJHMslf645HMP0qLZvKL5++Gyv8lmSwxVT5X7fH38U+tx7I/kjD1TBDXhHzflGy79IhKFpL6esbuWwXpBfF9/l/dmlpw6BgLaUdaaqfvcizlZ5yyP8z7tDYhMXob/52hYUcQZcRpPt92OI8vC+sotd5eDIDOlua5ttWG70t7TRC7mA95L2uh0WfRnLb3uXT8F59mvNe5s0v5eqOZvgmv9RjJHr0S71OY4vArExj5Ex8+BT3Y3z38zTu59o+IF8aOp/zLkbINbBr38L9vadm+4dWHR2KnN8D/oB9/A84i+Ex9sJ5GmaWa10T5vqZqJNr4/q5NvfPJma4fr7Uqzwj7M+WlgksO+e915/zLjzB4EkZ3s7qq+6X/qy+/NnodlZfd8+0Rx73LfKhOidRet8iF0xEntn3LercmUnVOzP5nnrcmTHxRO1r955KBcj3ngzLH3ov3V17OseMvruWv3/YpHlG3z8MgzbukL69mf+B8/eA3b/L7f59/DfVVMinBVJzrrXl62I0tIJRoS7Ge5v5HwRqbZPm04cHhtY2CXnN+jRhRX2ayNT6NEqNIW2FpEuNIe1HjKwx9AF1olqo9cWN6sEM5+u1VWN9zb1K3K+b6H7tSyi0Hyi0nw9Q6HxNdvfr6rv/2wiyU7MOjMlPvBXnf6PEi1z/nRnv9ltBLnrddyLHf+4JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCX/AAPDQUGZFNGXAAAAAElFTkSuQmCC"
         ></img>
       </div>
-      <div className="w-1/12  ">
+      <div className="md:w-1/12  ">
         <img
           className="h-8 -z-10 rounded-full"
           alt="user-icon"

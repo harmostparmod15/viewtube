@@ -33,9 +33,13 @@ const VideoCard = ({ info }) => {
   }, []);
 
   return (
-    <div className={"p-2 m-2 w-96 " + (!store?.isMenuOpen && "w-[20rem]")}>
+    <div
+      className={
+        "p-2 mx-10 md:m-2 w-96  " + (!store?.isMenuOpen && "w-[20rem]")
+      }
+    >
       <img
-        className="rounded-lg w-full "
+        className="rounded-lg w-full  "
         alt="thumbnail"
         src={thumbnails?.medium?.url}
       ></img>

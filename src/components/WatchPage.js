@@ -47,8 +47,9 @@ const WatchPage = () => {
   return (
     <div className="felx flex-col w-full">
       <div className="px-5 flex  ">
-        <div>
+        <div className="max-w-screen ">
           <iframe
+            className="w-[30rem] md:w-[60rem]"
             width="980"
             height="540"
             src={"https://www.youtube.com/embed/" + searchParams.get("v")}
@@ -67,7 +68,7 @@ const WatchPage = () => {
       <div className="px-5  flex w-full relative">
         {/*  left side -> titles etc */}
         <div className=" w-6/12">
-          <h1 className="text-2xl font-bold ">{snippet?.title}</h1>
+          <h1 className="md:text-2xl font-bold ">{snippet?.title}</h1>
           {/*  channel title && subscribe btn */}
           <div className="flex gap-4 py-4">
             <h1 className="font-bold opacity-80 ">{snippet?.channelTitle}</h1>
@@ -89,11 +90,11 @@ const WatchPage = () => {
         <div className=" w-3/12 flex gap-20  ">
           {/*  like btn */}
           <div className="w-32 flex gap-4">
-            <h1 className="py-2 h-12 px-4   bg-slate-100 rounded-full dark:bg-slate-700">
+            <h1 className="py-2 h-10 px-4   bg-slate-100 rounded-full dark:bg-slate-700">
               {formattedLikeCount}
             </h1>
             <img
-              className="w-20 h-20  -mt-4   rounded-full"
+              className=" w-8 h-8 md:w-20 md:h-20 mt-1  md:-mt-4   rounded-full"
               alt="logo"
               src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBjyN0MX2CdioDfEOIgFIYMhEEjCfIU_TBMMIbCABb_kyk2AAm"
             ></img>
@@ -101,7 +102,7 @@ const WatchPage = () => {
           {/*  dislike btn */}
           <div className="w-32 flex   ">
             <img
-              className="w-20 -mt-4 h-20 rounded-full rotate-180"
+              className="w-8 h-8 mt-1 md:w-20 md:h-20 -ml-4 absolute md:relative z-2  md:-mt-4 rotate-180   rounded-full"
               alt="logo"
               src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBjyN0MX2CdioDfEOIgFIYMhEEjCfIU_TBMMIbCABb_kyk2AAm"
             ></img>
