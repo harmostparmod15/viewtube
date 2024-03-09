@@ -64,7 +64,7 @@ const Header = () => {
     const json = await data.json();
     console.log("auto search result", json);
 
-    dispatch(addSearchQueryResults(json?.items));
+    dispatch(addSearchQueryResults(json));
     navigate("results");
   };
 
@@ -85,14 +85,15 @@ const Header = () => {
           />
         </a>
       </div>
-      <div className=" px-10 ml-60 w-10/12  ">
+      <div className=" px-10 ml-60 w-9/12  ">
         <div>
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
             value={searchQuery}
-            className="w-8/12 border border-gray-400 p-2 px-4 rounded-l-full"
+            placeholder="Search for Videos"
+            className="w-8/12 border border-gray-400 p-2 px-4 rounded-l-full placeholder-gray-400"
             type="text"
           />
           <button
@@ -119,7 +120,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="  ">
+      <div className="w-1/12  ">
         <img
           className="h-8"
           alt="user-icon"

@@ -8,7 +8,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="p-5 shadow-lg w-48">
+    <div className="text-xl   py-2 px-12 shadow-lg w-2/12  flex flex-col gap-4  fixed h-screen ">
       <ul>
         <li>
           <Link to="/">Home </Link>
@@ -24,7 +24,7 @@ const Sidebar = () => {
         <li>Gaming</li>
         <li>Movies</li>
       </ul>
-      <h1 className="font-bold pt-4 ">Watch later</h1>
+      <h1 className="font-bold pt-4 ">Explore </h1>
       <ul>
         <li>Music</li>
         <li>Sports</li>

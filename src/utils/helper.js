@@ -192,29 +192,24 @@ export function makeRandomMessage(length) {
   return result;
 }
 
-export const findPrime = (num) => {
-  let i,
-    primes = [2, 3],
-    n = 5;
-  const isPrime = (n) => {
-    let i = 1,
-      p = primes[i],
-      limit = Math.ceil(Math.sqrt(n));
-    while (p <= limit) {
-      if (n % p === 0) {
-        return false;
-      }
-      i += 1;
-      p = primes[i];
-    }
-    return true;
-  };
-  for (i = 2; i <= num; i += 1) {
-    while (!isPrime(n)) {
-      n += 2;
-    }
-    primes.push(n);
-    n += 2;
-  }
-  return primes[num - 1];
-};
+// function to convert views in million , thousand etc
+export function convertToInternationalCurrencySystem(labelValue) {
+  // Nine Zeroes for Billions
+  return Math.abs(Number(labelValue)) >= 1.0e9
+    ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+    : // Six Zeroes for Millions
+    Math.abs(Number(labelValue)) >= 1.0e6
+    ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+    : // Three Zeroes for Thousands
+    Math.abs(Number(labelValue)) >= 1.0e3
+    ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+    : Math.abs(Number(labelValue));
+}
+
+// function to count how many days before videos was uploaded
+export function convertToNoOfDaysPosted(publishDate) {
+  const today = new Date();
+  const date_to_reply = new Date(publishDate);
+  const timeinmilisec = today.getTime() - date_to_reply.getTime();
+  return Math.ceil(timeinmilisec / (1000 * 60 * 60 * 24));
+}

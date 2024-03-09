@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import SearchResultVideoCard from "./SearchResultVideoCard";
 
 const SearchResultPage = () => {
-  const videos = useSelector((store) => store?.search?.searchQueryResults);
+  const searchResult = useSelector(
+    (store) => store?.search?.searchQueryResults
+  );
+  const isMenuBarOpen = useSelector((store) => store?.app?.isMenuOpen);
+
+  const videos = searchResult?.items;
 
   if (!videos)
     return (
@@ -15,12 +21,17 @@ const SearchResultPage = () => {
     );
 
   return (
-    <div>
-      <h1 className="pl-8 text-4xl font-bold py-12 ">Your Results</h1>
-      <div className="flex flex-wrap">
+    <div className={isMenuBarOpen && "ml-[14rem]"}>
+      <div className=" pl-4 py-20 font-bold text-4xl  flex  h-20 items-baseline">
+        <h1>Search Results</h1>
+        <h1>({searchResult?.pageInfo?.totalResults})</h1>
+      </div>
+      <div className="flex flex-col mx-auto ml-24 flex-wrap">
         {videos.map((video) => (
-          <Link key={video.id} to={"/watch?v=" + video.id}>
-            <VideoCard info={video} />
+          <Link key={video.id} to={"/watch?v=" + video?.id?.videoId}>
+            {console.log("search result ", video)}
+            {/* <VideoCard info={video} /> */}
+            <SearchResultVideoCard info={video} />
           </Link>
         ))}
       </div>

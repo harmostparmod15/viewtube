@@ -17,7 +17,7 @@ const buttonNameList = [
 
 const ButtonList = () => {
   return (
-    <div className="flex overflow-x-scroll">
+    <div className="w-full flex overflow-x-scroll ml-2 ">
       {buttonNameList.map((button) => (
         <Button name={button} />
       ))}

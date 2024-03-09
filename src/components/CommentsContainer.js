@@ -2,44 +2,44 @@ import React from "react";
 
 const commentsData = [
   {
-    name: "Akshay Saini",
+    name: "John Doe ",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
-    name: "Akshay Saini",
+    name: "John Doe ",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [
       {
-        name: "Akshay Saini",
+        name: "John Doe ",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [],
       },
       {
-        name: "Akshay Saini",
+        name: "John Doe ",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [
           {
-            name: "Akshay Saini",
+            name: "John Doe ",
             text: "Lorem ipsum dolor sit amet, consectetur adip",
             replies: [
               {
-                name: "Akshay Saini",
+                name: "John Doe ",
                 text: "Lorem ipsum dolor sit amet, consectetur adip",
                 replies: [
                   {
-                    name: "Akshay Saini",
+                    name: "John Doe ",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [
                       {
-                        name: "Akshay Saini",
+                        name: "John Doe ",
                         text: "Lorem ipsum dolor sit amet, consectetur adip",
                         replies: [],
                       },
                     ],
                   },
                   {
-                    name: "Akshay Saini",
+                    name: "John Doe ",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [],
                   },
@@ -51,33 +51,14 @@ const commentsData = [
       },
     ],
   },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
 ];
 
 const Comment = ({ data }) => {
   const { name, text, replies } = data;
 
   return (
-    <div className="flex bg-gray-100 p-2 rounded-lg  my-2">
+    <div className="flex  p-2 rounded-lg  my-2">
+      <h1>↪</h1>
       <img
         className="w-12 h-12"
         alt="user"
@@ -85,7 +66,7 @@ const Comment = ({ data }) => {
       />
       <div className="px-3">
         <p className="font-bold ">{name}</p>
-        <p>{text}</p>
+        <p className="text-sm">{text}</p>
       </div>
     </div>
   );
@@ -102,10 +83,10 @@ const CommentsList = ({ comments }) => {
   ));
 };
 
-const CommentsContainer = () => {
+const CommentsContainer = ({ commentCount }) => {
   return (
     <div className="m-5 p-2">
-      <h1 className="text-2xl font-bold ">Comments</h1>
+      <h1 className="text-2xl font-bold ">Comments ({commentCount})</h1>
       <CommentsList comments={commentsData} />
     </div>
   );
