@@ -11,4 +11,8 @@ export const YT_VIDEO_DETAIL_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" +
   GOOGLE_API_KEY;
 
+export const YT_AUTHOR_THUMBNAIL =
+  "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&key= " +
+  GOOGLE_API_KEY;
+
 export const LIVE_CHAT_OFFSET = 25;

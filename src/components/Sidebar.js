@@ -8,7 +8,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="text-xl   py-2 px-12 shadow-lg w-2/12  flex flex-col gap-4  fixed h-screen ">
+    <div className="text-xl   py-2 px-12 shadow-lg w-[12rem]  flex flex-col gap-4  fixed h-screen dark:bg-black dark:text-white transition-all duration-700">
       <ul>
         <li>
           <Link to="/">Home </Link>

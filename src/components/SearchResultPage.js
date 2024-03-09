@@ -22,7 +22,7 @@ const SearchResultPage = () => {
 
   return (
     <div className={isMenuBarOpen && "ml-[14rem]"}>
-      <div className=" pl-4 py-20 font-bold text-4xl  flex  h-20 items-baseline">
+      <div className="ml-24 pl-4 py-20 font-bold text-4xl  flex  h-20 items-baseline">
         <h1>Search Results</h1>
         <h1>({searchResult?.pageInfo?.totalResults})</h1>
       </div>

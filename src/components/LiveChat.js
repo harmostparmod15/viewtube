@@ -27,7 +27,7 @@ const LiveChat = () => {
 
   return (
     <>
-      <div className="flex flex-col-reverse   w-full h-[540px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll   ">
+      <div className="flex flex-col-reverse   w-10/12 h-[540px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll dark:bg-slate-600 dark:text-white  ">
         <div>
           {chatMessages.map((c, index) => (
             <ChatMessage key={index} name={c.name} message={c.message} />
@@ -45,18 +45,16 @@ const LiveChat = () => {
           );
           setLiveMessage("");
         }}
-        className="w-full p-2 ml-2  border border-black flex"
+        className="w-full p-2 ml-2   flex"
       >
         <input
-          className="px-2  w-96"
+          className="px-6 py-2 -ml-2  w-64 border dark:bg-slate-700 rounded-l-full"
           type=" text"
+          placeholder="enter your message"
           value={liveMessage}
           onChange={(e) => setLiveMessage(e.target.value)}
         ></input>
-        <button
-          className="px-2 mx-2 bg-green-100  
-         "
-        >
+        <button className="px-4  rounded-r-full  dark:bg-black border  ">
           Sent
         </button>
       </form>

@@ -64,14 +64,14 @@ const WatchPage = () => {
       </div>
 
       {/* video stastics */}
-      <div className="px-5  flex w-full">
+      <div className="px-5  flex w-full relative">
         {/*  left side -> titles etc */}
         <div className=" w-6/12">
           <h1 className="text-2xl font-bold ">{snippet?.title}</h1>
           {/*  channel title && subscribe btn */}
           <div className="flex gap-4 py-4">
             <h1 className="font-bold opacity-80 ">{snippet?.channelTitle}</h1>
-            <button className="bg-slate-900 text-white px-4 py-2  text-sm font-bold rounded-full ">
+            <button className="bg-slate-900 text-white px-4 py-2  text-sm font-bold rounded-full dark:bg-slate-700 ">
               Subscribe
             </button>
           </div>
@@ -86,22 +86,22 @@ const WatchPage = () => {
           </div>
         </div>
         {/*  right side -> like btns  etc */}
-        <div className=" w-3/12 flex justify-between">
+        <div className=" w-3/12 flex gap-20  ">
           {/*  like btn */}
-          <div className="w-32 flex ">
-            <h1 className="py-2 h-12 px-4   bg-slate-100 rounded-full">
+          <div className="w-32 flex gap-4">
+            <h1 className="py-2 h-12 px-4   bg-slate-100 rounded-full dark:bg-slate-700">
               {formattedLikeCount}
             </h1>
             <img
-              className="w-32 h-32  relative -top-10 -left-10 -z-10"
+              className="w-20 h-20  -mt-4   rounded-full"
               alt="logo"
               src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBjyN0MX2CdioDfEOIgFIYMhEEjCfIU_TBMMIbCABb_kyk2AAm"
             ></img>
           </div>
           {/*  dislike btn */}
-          <div className="w-32 flex relative -top-10 -left-24  ">
+          <div className="w-32 flex   ">
             <img
-              className="w-32 h-32 rotate-180"
+              className="w-20 -mt-4 h-20 rounded-full rotate-180"
               alt="logo"
               src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBjyN0MX2CdioDfEOIgFIYMhEEjCfIU_TBMMIbCABb_kyk2AAm"
             ></img>
