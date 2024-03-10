@@ -21,12 +21,12 @@ const SearchResultPage = () => {
     );
 
   return (
-    <div className={isMenuBarOpen && "ml-[14rem]"}>
-      <div className="ml-24 pl-4 py-20 font-bold text-4xl  flex  h-20 items-baseline">
+    <div className={"border border-red-500" + isMenuBarOpen && "md:ml-[14rem]"}>
+      <div className="md:ml-24 pl-4 py-20 font-bold md:text-4xl  flex  h-20 items-baseline">
         <h1>Search Results</h1>
         <h1>({searchResult?.pageInfo?.totalResults})</h1>
       </div>
-      <div className="flex flex-col mx-auto ml-24 flex-wrap">
+      <div className="flex flex-col mx-auto md:ml-24 flex-wrap">
         {videos.map((video) => (
           <Link key={video.id} to={"/watch?v=" + video?.id?.videoId}>
             {console.log("search result ", video)}

@@ -14,8 +14,8 @@ const SearchResultVideoCard = ({ info }) => {
   return (
     <div
       className={
-        "  p-2 m-2 w-[70rem]  flex justif gap-8 " +
-        (!store?.isMenuOpen && "w-[40rem]")
+        "  p-2 m-2   md:w-[70rem]  flex justif gap-8 " +
+        (!store?.isMenuOpen && "md:w-[40rem]")
       }
     >
       <img
@@ -23,7 +23,7 @@ const SearchResultVideoCard = ({ info }) => {
         alt="thumbnail"
         src={thumbnails?.medium?.url}
       ></img>
-      <ul className="w-7/12 h-32 mt-1">
+      <ul className="w-[20rem]  md:w-7/12 h-32 mt-1">
         <li className="font-bold py-1 ">{title}</li>
         <li className="text-sm">{channelTitle}</li>
 

@@ -35,7 +35,8 @@ const VideoCard = ({ info }) => {
   return (
     <div
       className={
-        "p-2 mx-10 md:m-2 w-96  " + (!store?.isMenuOpen && "w-[20rem]")
+        "my-6 mx-6 md:m-2 w-64 md:w-96  " +
+        (!store?.isMenuOpen && "md:w-[20rem]")
       }
     >
       <img

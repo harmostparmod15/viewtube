@@ -10,6 +10,8 @@ import {
   clearSearchQueryResults,
 } from "../utils/searchSlice";
 
+import menuImage from "../images/menu.png";
+
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const Header = () => {
@@ -81,19 +83,20 @@ const Header = () => {
       <div className="flex w-3/12 md:w-2/12   ">
         <img
           onClick={toggleMenuHandler}
-          className="h-8 cursor-pointer rounded-full   "
+          className="h-10 w-12 cursor-pointer rounde   "
           alt="menu"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTQ5g7bDRjn-32JqTXGLUQJfXcPr4t4l_Aqw&usqp=CAU"
+          src={menuImage}
+          // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTQ5g7bDRjn-32JqTXGLUQJfXcPr4t4l_Aqw&usqp=CAU"
         />
         <a href="/" className="flex ">
           <img
-            alt="youtube-logo"
-            className="h-8 mx-2  "
-            src="https://www.youtube.com/s/desktop/29d8088d/img/favicon_32x32.png"
-            // src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
-          />
-          <h1 className="dark:text-white relative  font-bold text-2xl hidden md:flex">
-            YOUTUBE
+            alt="logo"
+            className="h-10 mx-2 rounded-full"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAflBMVEX/AAD/////Wlr/xsb/kZH/Z2f/Njb/l5f/GBj/+Pj/zs7/39//7e3/ISH//Pz/5ub/jY3/2dn/paX/goL/LCz/rq7/bW3/Dw//vr7/8/P/Jib/fn7/sLD/w8P/Ozv/4+P/SEj/QUH/t7f/c3P/hob/UVH/YWH/oKD/nJz/aWm7MlSsAAAC1klEQVR4nO3ba3eaQBSF4Yyk3gtqk6i5qWmi7f//gxUbkwPCAArr5JD3+aiurL2XzIwzkKsrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQJoMp7O+dogGzSMXm2nnaE7g/lv+0k7SkJuBOxp1tMM0ouOE4Vw7TgMSDffDsX1TTqqhG7RuOKYb7ofjD+1M9TptuB+ON9qp6pTV0Lnbe+1c9clu6AbX2sFqk9PQuehOO1pNchs6N91oh6uFp6Fzj9rp6uBt6F6049XA39B1tfNdrqBhC6bUb99wrZ3vcv6GgXa8GngbtqGgr+F4Kz433/xUy3iZ/IY9+bEgdGFgc8uR1zCQm/3e+4u3ajEvkN0wkrvg3+PPC/dVLejZMhvKVXA9TLw1fVOLeqaMhoGcU15O3n4ydlh10jCSM+gkzPiGwz9qac+RahjKGfQuyrqEXWqYfnXJhguxIHSHOf1iUzubDtkwkrPIo6dfzMzK0V8eIycOn16XvnYHZm7l7I4XqDhA3I4K+x0uVSNnjof1YCXuO90HRdWOVnqpK+n2dmJunM/K9tuzcqFKD8UDUDAz3Xx4KzcAP1g7buwvqvVzzti5eK+4UcpUO3IlYo9U1pOlm+LP08r9BpYu0XnlAWhskrnO2iP5rSw9mdLJ2yN5mNohbqv3M7R1ilX+Bq09j7KuWjCwdjJccGcmbflXO3Bl1Rra+6VdreHK3FlprELDXvFf+4pKNzS2RHwq2XDwoB30bOUamtpFpJRpOLZ0xH2iREOLS4RQ2HC01o54oaKG9h+o8TccWl0iBF9Dw0uE4Gm4MLxECPnPCNvbRWTLa2h8iRCyG45aMMMcZTUMJ9qp6pTRsA1LhHDSMLR0lF1GuuFCO1Dtkg1NPShTUqLhTjtNEzZiiXjWDtOM4221di0R0vuhd7v+5zApfn5t1bYlAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKjHP13jF+J7YKddAAAAAElFTkSuQmCC"
+          ></img>
+
+          <h1 className=" dark:bg-gradient-to-r from-[#7AF55C] via-[#5AD3AD] to-[#3BB6E9]      dark:text-transparent dark:bg-clip-text    relative  font-extrabold  text-4xl hidden md:flex">
+            VIEWTUBE
           </h1>
         </a>
       </div>
