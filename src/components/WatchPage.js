@@ -23,8 +23,6 @@ const WatchPage = () => {
       `${YT_VIDEO_DETAIL_API}  &id=${searchParams.get("v")}`
     );
     const json = await data.json();
-    console.log(data);
-    console.log("vid detail", json);
     setVideoDetail(json?.items[0]);
   };
 

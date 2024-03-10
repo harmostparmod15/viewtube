@@ -54,7 +54,6 @@ const Header = () => {
   };
 
   const autoSearchApiCall = async () => {
-    console.log("yh h api querry", searchQuery);
     dispatch(clearSearchQueryResults());
     const data = await fetch(
       "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" +
@@ -64,7 +63,6 @@ const Header = () => {
     );
 
     const json = await data.json();
-    console.log("auto search result", json);
 
     dispatch(addSearchQueryResults(json));
     navigate("results");
