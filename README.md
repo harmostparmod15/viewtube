@@ -1,6 +1,6 @@
 # ViewTube - watch share enjoy
 
-[Live Project Link](https://viewtube-two.vercel.app/)
+[Live Project Link](https://viewtube-puce.vercel.app/)
 
 ![image](/src/images/view-tube.png "preview site ")
 
