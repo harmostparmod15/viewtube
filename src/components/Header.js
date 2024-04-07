@@ -18,6 +18,7 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [themeUpdate, setThemeUpdate] = useState(null);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -68,13 +69,33 @@ const Header = () => {
     navigate("results");
   };
 
-  // handle theme change
-  const handleThemeChange = () => {
-    const htmlTag = document.querySelector("html");
-    htmlTag.classList.toggle("dark");
-    document.querySelector(".dark-logo").classList.toggle("hidden");
-    document.querySelector(".light-logo").classList.toggle("hidden");
+  // ADD DARK MODE
+  const addDark = () => {
+    setThemeUpdate(0);
+    localStorage.setItem("theme", "dark");
   };
+
+  // ADD LIGHT MODE
+  const addLight = () => {
+    setThemeUpdate(1);
+    localStorage.setItem("theme", "light");
+  };
+
+  // GET THEME FROM LOCAL STORAGE AND ADD DARK MODE TO PAGE
+  useEffect(() => {
+    const userTheme = localStorage.getItem("theme");
+    const htmlTag = document.querySelector("html");
+
+    if (userTheme === "dark") {
+      htmlTag.classList.add("dark");
+      document.querySelector(".light-logo").classList.remove("hidden");
+      document.querySelector(".dark-logo").classList.add("hidden");
+    } else if (userTheme === "light") {
+      htmlTag.classList.remove("dark");
+      document.querySelector(".light-logo").classList.add("hidden");
+      document.querySelector(".dark-logo").classList.remove("hidden");
+    }
+  }, [themeUpdate]);
 
   return (
     <div className=" w-full md:w-screen flex justify-between p-5  shadow-lg transition-all duration-700 dark:bg-black">
@@ -98,7 +119,7 @@ const Header = () => {
           </h1>
         </a>
       </div>
-      {/*  search box */}
+      {/*  SEARCH BOX */}
       <div className=" md:px-10 md:ml-60 md:w-9/12 w-6/12  ">
         <div>
           <input
@@ -134,16 +155,16 @@ const Header = () => {
           </div>
         )}
       </div>
-      {/* dark theme */}
+      {/*  THEME BOX */}
       <div className=" md:w-1/12 text-center">
         <img
-          onClick={handleThemeChange}
+          onClick={addDark}
           className="w-9 cursor-pointer dark-logo "
           alt="logo"
           src="data:image/png;base64,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"
         ></img>
         <img
-          onClick={handleThemeChange}
+          onClick={addLight}
           className="w-9 cursor-pointer light-logo hidden "
           alt="logo"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAaVBMVEUaGhr///8AAAAJCQkYGBgVFRUbGxsRERF1dXUQEBDHx8dHR0fv7+/Dw8P7+/twcHDe3t6zs7OioqIvLy8nJye7u7tkZGQ8PDytra3Pz8/k5ORqamqampohISFPT0+Ojo6CgoJXV1ddXV04mqmCAAAFH0lEQVR4nO2dbZuqIBCGdRSJMnsv23Zr2///I0/2CmponlSg577223YZj8AwM8DkeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+mTAM+25Cq3AKlgHxvpvRHrRfxXG82lPfDWmJiH4TPyP5dVRisPZvrIO+G9MK9HVX+OVkJ7KN/2DD+m5OCwQTSeHExWEaDCSFAyi0ESi0Hyi0H7GWFK5F381pgVBICoWFMVQYEOnjIprdBc60Xhs/PSkw7hUEfDdPDyPSNIz9TK8Cpz8apy2k0SGd74RhM5WO59YnKWnaLhbjs8DxQtPXjNJzjDU9GuWdB8fk2j1DnURG+0N62Os/Mrw+KTka1IuhmN6nmFbieYrpJutD4KkXuTlzUewkMzkUOonR+e8ZTAylJ+3M6USa+7LExu+ecVmgPyfNy+gWSn1Fos6iaghJEein5tgaOigt8w/Nmvamx7QBHyVK0+KGCmPlKcnIoMRqbpj6jdrGR+pDDBqkxRn018SxFn9vmc0twVSJm0Z9uFEFGpaOUyQ2TIdKCVXzBKqLdXl8y7Lo40J55CDFyHq3oScey/W82IVZbLUYfM/G2+12nH4PFqUq757DkBlkRh8wOmTm/mtQEMiJT1bqUhCvJoLyzk9Ig2ygxgfzhugVotHfhvJDVNBopq6XF5LZiPI2N6DN34jMsqIqvDB/GB3HJfIujE+RlOp7RkwYOUCfQ8vS/nv049Ic97oRtIs1+s4TcmeS6/IqTA2rnjA31q5UEXE2rNbnG7s2VMN/trUE+v72x0qJjNcVeJLIbRyoVG+IXgeqheamlpF5UOLpGQ7tqlUp2LZosGXVOpgnXto1FaVdmLrod2tMQxx1rlo5yd6mPUV67mw/Z2xRJ+azZjUxKXtYQYNZmGHPTAz567MwI7Fm71s5wfYK1px2o1VDhSvDhikPLhTGFr262t8o7HeE4voVPXgDkaDNZHBmLdRkC1s0FOj7C1lJxIivL18xKea3WofWUoJ6psR3yuGn11BSyeJHMslf645HMP0qLZvKL5++Gyv8lmSwxVT5X7fH38U+tx7I/kjD1TBDXhHzflGy79IhKFpL6esbuWwXpBfF9/l/dmlpw6BgLaUdaaqfvcizlZ5yyP8z7tDYhMXob/52hYUcQZcRpPt92OI8vC+sotd5eDIDOlua5ttWG70t7TRC7mA95L2uh0WfRnLb3uXT8F59mvNe5s0v5eqOZvgmv9RjJHr0S71OY4vArExj5Ex8+BT3Y3z38zTu59o+IF8aOp/zLkbINbBr38L9vadm+4dWHR2KnN8D/oB9/A84i+Ex9sJ5GmaWa10T5vqZqJNr4/q5NvfPJma4fr7Uqzwj7M+WlgksO+e915/zLjzB4EkZ3s7qq+6X/qy+/NnodlZfd8+0Rx73LfKhOidRet8iF0xEntn3LercmUnVOzP5nnrcmTHxRO1r955KBcj3ngzLH3ov3V17OseMvruWv3/YpHlG3z8MgzbukL69mf+B8/eA3b/L7f59/DfVVMinBVJzrrXl62I0tIJRoS7Ge5v5HwRqbZPm04cHhtY2CXnN+jRhRX2ayNT6NEqNIW2FpEuNIe1HjKwx9AF1olqo9cWN6sEM5+u1VWN9zb1K3K+b6H7tSyi0Hyi0nw9Q6HxNdvfr6rv/2wiyU7MOjMlPvBXnf6PEi1z/nRnv9ltBLnrddyLHf+4JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCX/AAPDQUGZFNGXAAAAAElFTkSuQmCC"
